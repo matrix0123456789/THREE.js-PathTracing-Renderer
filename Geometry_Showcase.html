@@ -500,7 +500,7 @@ void SetupScene(void)
 			var apertureSize = 0.0;
 			var increaseAperture = false;
 			var decreaseAperture = false;
-			var focusDistance = 132.0;
+			var focusDistance = 2.0;
 			var increaseFocusDist = false;
 			var decreaseFocusDist = false;
 			var pixelRatio = 0.5;
@@ -914,7 +914,7 @@ void SetupScene(void)
 				
 				requestAnimationFrame( animate );
 				
-				frameTime = clock.getDelta();
+				frameTime = clock.getDelta()*2;
 				
 				//elapsedTime = clock.getElapsedTime() % 1000;
 				
