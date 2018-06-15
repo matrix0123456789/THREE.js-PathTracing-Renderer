@@ -1602,7 +1602,7 @@ void SetupScene(void)
 			var focusDistance = 132.0;
 			var increaseFocusDist = false;
 			var decreaseFocusDist = false;
-			var pixelRatio = 0.5;
+			var pixelRatio = 1;
 			var TWO_PI = Math.PI * 2;
 			var randomVector = new THREE.Vector3();
 			var sampleCounter = 1.0;
@@ -2004,9 +2004,9 @@ void SetupScene(void)
 			function animate() {
 				
 				requestAnimationFrame( animate );
-				
-				frameTime = clock.getDelta();
-				
+				var mult=10;
+				frameTime = clock.getDelta()/mult;
+				for(var i=0;i<mult;i++){
 				//elapsedTime = clock.getElapsedTime() % 1000;
 				
 				// reset flags
@@ -2214,7 +2214,7 @@ void SetupScene(void)
 					cameraIsMoving = true;
 					decreaseAperture = false;
 				}
-				
+				cameraIsMoving=i==0;
 				
 				if ( cameraIsMoving ) {
 					
@@ -2264,7 +2264,7 @@ void SetupScene(void)
 				// After the image is gamma corrected, it will be shown on the screen as the final accumulated output
 				renderer.render( screenOutputScene, quadCamera );
 						
-				
+				}
 				stats.update();
 					
 				
